@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+      <ng-container *ngFor="let product of products">
+        <ng-container *ngIf="product.id == product_id">
+          <div class="centered">
+            <div class="card text-center">
+              <img class="card-img" [src]="product.image" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">$ {{ product.price }}</li>
+                <li class="list-group-item">{{ product.category }}</li>
+            
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link btn btn-dark"><i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                <a href="#" class="card-link btn btn-danger"><i class="fa fa-heart"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </ng-container>
+      </ng-container>
+  </div>
+</div>
