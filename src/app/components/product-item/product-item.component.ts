@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { EventEmitter } from '@angular/core';
+import { WishlistService } from 'src/app/services/wishlist.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-item',
@@ -9,15 +11,14 @@ import { EventEmitter } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
-  @Output() wishProduct: EventEmitter<Product> = new EventEmitter();
-  // wished: boolean = false;
-  constructor() { }
+  
+  constructor(private wishlistService:WishlistService) { }
 
   ngOnInit() {
   }
 
   onWish(){
-    this.wishProduct.emit(this.product);
+    this.wishlistService.addToWishlist(this.product);
   }
 
 }

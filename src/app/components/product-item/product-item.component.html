@@ -5,10 +5,10 @@
     <div class="caption">
       <h5>{{product.name}}</h5>
       <h4>
-        <button class="btn btn-danger m-1" (click)="onWish()" data-action="view-product">
+        <button class="btn btn-danger m-1" (click)="onWish()" [disabled]="product.wished">
           <i class="fa fa-heart"></i>
         </button>
-        <button data-action="add-cart" class="btn btn-info"><i class="fa fa-shopping-cart"></i></button>
+        <button data-action="add-cart" class="btn btn-info" [disabled]="product.purchased"><i class="fa fa-shopping-cart"></i></button>
         <button [routerLink]="['/products/', product.id]" type="button" class="btn">$ {{product.price}}</button>
       </h4>
     </div>
