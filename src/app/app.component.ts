@@ -24,9 +24,7 @@ export class AppComponent implements OnInit{
 			product.wished = JSON.parse(localStorage.getItem(`${product.id}-wish`)) || false;
 			product.purchased = JSON.parse(localStorage.getItem(`${product.id}-purchase`)) || false;
 			if(product.wished) this.wishlist.products.push(product);
-			// if(product.purchased) this.cart.products.push(product);
-			
-			
+			if(product.purchased) this.cart.products.push(product);
 		});
 		this.products.setProducts(this.product);
 	}
