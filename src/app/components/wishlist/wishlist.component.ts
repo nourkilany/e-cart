@@ -16,16 +16,13 @@ import { WishlistService } from 'src/app/services/wishlist.service';
   styleUrls: ["./wishlist.component.scss"]
 })
 export class WishlistComponent implements OnInit {
-  products:Product[];
+  
 
   wishlistCounter: number = 0;
 
   constructor(private wishlist:WishlistService) {}
 
   ngOnInit() {
-    this.products = this.wishlist.getWishlist();
-    this.wishlist.observable.subscribe(()=>{
-      this.wishlistCounter = this.wishlist.getWishlistCount()
-    });
+    this.wishlist.observable.subscribe(() => this.wishlistCounter = this.wishlist.getWishlistCount());
   }
 }

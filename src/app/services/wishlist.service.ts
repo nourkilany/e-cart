@@ -17,7 +17,7 @@ export class WishlistService {
     this.products.push(product);
     this.observable.next(product.id);
     product.wished = true;
-    localStorage.setItem(product.id, "true"); 
+    localStorage.setItem(`${product.id}-wish`, "true");
   }
 
   getWishlist(){
