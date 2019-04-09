@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-shopping-cart",
+  selector: 'app-shopping-cart',
   template: `
     <div>
       <a class="nav-link" href="javascript:;;">
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
       </a>
     </div>
   `,
-  styleUrls: ["./shopping-cart.component.scss"]
+  styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
   constructor() {}

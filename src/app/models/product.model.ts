@@ -6,4 +6,6 @@ export interface Product {
     image: string;
     price: number;
     description: string;
+    wished: boolean;
+    purchased: boolean;
 }

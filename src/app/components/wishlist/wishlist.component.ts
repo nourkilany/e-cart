@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
+import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
   selector: "app-wishlist",
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     <div>
       <a class="nav-link" href="javascript:;;">
         <i class="fa fa-heart">
-          <span class="mt-1"> 0</span>
+          <span class="mt-1"> {{wishlistCounter}}</span>
         </i>
       </a>
     </div>
@@ -14,8 +16,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ["./wishlist.component.scss"]
 })
 export class WishlistComponent implements OnInit {
-  wishlistCounter: number = 0;
-  constructor() {}
+  products:Product[];
 
-  ngOnInit() {}
+  wishlistCounter: number = 0;
+
+  constructor(private wishlist:WishlistService) {}
+
+  ngOnInit() {
+    this.products = this.wishlist.getWishlist();
+    this.wishlist.observable.subscribe(()=>{
+      this.wishlistCounter = this.wishlist.getWishlistCount()
+    });
+  }
 }

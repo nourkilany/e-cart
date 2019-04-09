@@ -16,7 +16,6 @@ export class ViewPageComponent implements OnInit {
   ngOnInit() {
     this.products = this.productsService.getProducts();
     this.product_id = this.route.params['value'].id;
-    // console.table()
   }
 
 }
