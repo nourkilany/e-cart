@@ -13,6 +13,8 @@ import { ViewPageComponent } from './components/view-page/view-page.component';
 import { ProductsService } from './services/products.service';
 import { WishlistService } from './services/wishlist.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,14 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ProductsComponent,
     ProductItemComponent,
     ViewPageComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProductsService, WishlistService],
   bootstrap: [AppComponent]
