@@ -8,7 +8,9 @@
         <button class="btn btn-danger m-1" (click)="onWish()" [disabled]="product.wished">
           <i class="fa fa-heart"></i>
         </button>
-        <button data-action="add-cart" class="btn btn-info" [disabled]="product.purchased"><i class="fa fa-shopping-cart"></i></button>
+        <button class="btn btn-info" (click)="onCart()" [disabled]="product.purchased">
+          <i class="fa fa-shopping-cart"></i>
+        </button>
         <button [routerLink]="['/products/', product.id]" type="button" class="btn">$ {{product.price}}</button>
       </h4>
     </div>

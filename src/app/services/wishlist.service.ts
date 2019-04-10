@@ -9,6 +9,7 @@ export class WishlistService {
 
   products:Product[] = [];
   private wishCount: number = 0;
+  
   observable: BehaviorSubject<any> = new BehaviorSubject(0);
   
   constructor() { }
@@ -26,6 +27,17 @@ export class WishlistService {
 
   getWishlistCount(){
     return this.products.length;
+  }
+
+  deleteWish(id) {
+    this.products.filter((product) => {
+      if (id == product.id) {
+        this.products.splice(this.products.indexOf(product), 1);
+        localStorage.removeItem(`${product.id}-wish`);
+        product.wished = false;
+      }
+    });
+
   }
   
 }

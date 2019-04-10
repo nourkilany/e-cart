@@ -12,6 +12,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ViewPageComponent } from './components/view-page/view-page.component';
 import { ProductsService } from './services/products.service';
 import { WishlistService } from './services/wishlist.service';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WishlistService } from './services/wishlist.service';
     ShoppingCartComponent,
     ProductsComponent,
     ProductItemComponent,
-    ViewPageComponent
+    ViewPageComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
