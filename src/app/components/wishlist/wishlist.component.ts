@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-wishlist",
@@ -13,9 +14,11 @@ export class WishlistComponent implements OnInit {
 
   wishlistCounter: number = 0;
   wishlist_products: Product[] = [];
+  
   constructor(
     private wishlist:WishlistService,
-    private cart:CartService
+    private cart:CartService,
+    private router:Router
     ) {}
 
   ngOnInit() {
@@ -34,5 +37,6 @@ export class WishlistComponent implements OnInit {
 
   addToCart(product){
     this.cart.addToCart(product);
+    this.deleteProduct(product.id);
   }
 }
