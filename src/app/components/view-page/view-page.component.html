@@ -1,27 +1,43 @@
 <div class="container">
+  <h1 class="my-4">{{product.name}}
+  </h1>
+  <!-- Portfolio Item Row -->
   <div class="row">
-      <ng-container *ngFor="let product of products">
-        <ng-container *ngIf="product.id == product_id">
-          <div class="centered">
-            <div class="card text-center">
-              <img class="card-img" [src]="product.image" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">$ {{ product.price }}</li>
-                <li class="list-group-item">{{ product.category }}</li>
-            
-              </ul>
-              <div class="card-body">
-                <a href="#" class="card-link btn btn-dark"><i class="fa fa-shopping-cart"></i> Add To Cart</a>
-                <a href="#" class="card-link btn btn-danger"><i class="fa fa-heart"></i></a>
-              </div>
-            </div>
 
-          </div>
-        </ng-container>
-      </ng-container>
+    <div class="col-md-8">
+      <img class="img-fluid" [src]="product.image" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Product Description</h3>
+      <p>{{ product.description }}</p>
+      <h3 class="my-3">Product Details</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">$ {{ product.price }}</li>
+        <li class="list-group-item">{{ product.category }}</li>
+      </ul><br>
+      <button class="card-link btn btn-dark" (click)="onCart()" [disabled]="product.purchased">
+        <i class="fa fa-shopping-cart"></i>
+        Add To Cart
+      </button>
+      <button class="card-link btn btn-danger" (click)="onWish()" [disabled]="product.wished">
+        <i class="fa fa-heart"></i>
+      </button>
+    </div>
+
+  </div>
+  
+  <h3 class="my-4">Related Products</h3>
+
+  <div class="row">
+    <ng-container *ngFor="let product of similar_products">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <small>{{product.name}}</small>
+        <a  class="related-product" (click)="onSwitch(product)">
+          <img class="img-fluid" [src]="product.image" alt="product-image">
+        </a>
+      </div>
+    </ng-container>
   </div>
 </div>
+
