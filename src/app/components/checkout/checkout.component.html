@@ -1,17 +1,10 @@
-<!-- <ul>
-  <ng-container *ngFor="let product of products">
-    <li>{{ product.price }}</li>
-  </ng-container>
-</ul>
-<div>
-  {{ totalCost }}
-</div> -->
 <div class="container">
   <table id="cart" class="table table-hover table-condensed">
     <thead>
       <tr>
         <th style="width:100%"> Product </th>
-        <th> Price </th>
+        <th style="width:120%"> Price </th>
+        <th> Quantity </th>
         <th> Delete </th>
       </tr>
     </thead>
@@ -29,6 +22,14 @@
             </div>
           </td>
           <td data-th="Price">{{ product.price }}</td>
+          <td>
+            <select class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </td>
           <td class="actions" data-th="">
             <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)"><i class="far fa-trash-alt"></i></button>
           </td>
@@ -38,8 +39,7 @@
     <tfoot>
       <tr>
         <td><a routerLink="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-        <td colspan="2" class="hidden-xs"></td>
-        <td class="hidden-xs text-center"><strong>Total ${{ totalCost }}</strong></td>
+        <td class="text-center"><strong>Total ${{ totalCost }}</strong></td>
       </tr>
     </tfoot>
   </table>
