@@ -8,7 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
     <div class="nav-link dropdown">
 				<a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">
-					{{userName}}
+					<i class="fa fa-user mt-1"></i> {{userName}}
 			  </a>
 				<div class="dropdown-menu">
           <a  class="dropdown-item" routerLink="/register" >Register</a>
@@ -20,7 +20,7 @@ import { LoginService } from 'src/app/services/login.service';
     <div class="nav-link dropdown">
 				<a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">
-					{{userName}}
+					<i class="fa fa-user mt-1"></i> {{userName}}
 			  </a>
 				<div class="dropdown-menu">
 					<app-logout></app-logout>

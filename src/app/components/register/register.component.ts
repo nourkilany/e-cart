@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   message = '';
+  errorMessage = '';
 
   constructor(private formBuilder: FormBuilder, private router:Router) { }
 
@@ -37,13 +38,10 @@ export class RegisterComponent implements OnInit {
         "userName": this.registerForm.value.userName,
         "password": this.registerForm.value.password
       };
-      // alert("you registered successfully !!");
-      // this.router.navigate(['login']);
       localStorage.setItem(user.userName, JSON.stringify(user));
       this.message = "You've registered successfully!";
     } else {
-      console.log("invalid registration")
-      console.log(this.registerForm);
+      this.errorMessage = "Invalid Username or password";
     }
   }
 

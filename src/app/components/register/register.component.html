@@ -7,6 +7,11 @@
         <a routerLink="/login" class="btn btn-success">Login</a>
       </div>
     </ng-container>
+    <ng-container *ngIf="errorMessage">
+      <div class="alert alert-danger" role="alert">
+        <label>{{errorMessage}}</label>
+      </div>
+    </ng-container>
     <div class="form-group">
       <label *ngIf="registerForm.get('userName')"><b>Username</b></label>
       <input class="form-control" type="text" name="userName" placeholder="Enter Username" formControlName="userName">

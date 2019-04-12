@@ -21,7 +21,7 @@ export class LogoutComponent implements OnInit {
       this.user.setName('Guest');
       this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     }
   }
 
