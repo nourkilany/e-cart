@@ -40,19 +40,17 @@ export class UsernameComponent implements OnInit {
     
     this.user.getName().subscribe(response => {
       let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      console.log("1", currentUser);
+      
       let user = '';
       if (currentUser) {
         user = currentUser.userName;
-        console.log("user->",user);
-        console.log("CurrentUser->",currentUser);
       }
       if (response == "Guest") {
         this.userName = "Guest";
-        console.log("if", this.userName);
+        
       } else {
         this.userName = response;
-        console.log("else",this.userName);
+        
       }
     });
   }
