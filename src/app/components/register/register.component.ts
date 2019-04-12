@@ -27,10 +27,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.status == "VALID") {
-      console.log("vvvv")
+      console.log("Validated successfully")
       console.log(this.registerForm);
     } else {
-      console.log("iii")
+      console.log("invalid registration")
       console.log(this.registerForm);
     }
   }
