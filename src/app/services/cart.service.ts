@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+
   products: Product[] = [];
   private cartCount: number = 0;
   observable: BehaviorSubject<any> = new BehaviorSubject(0);
@@ -33,6 +34,7 @@ export class CartService {
         this.products.splice(this.products.indexOf(product), 1);
         localStorage.removeItem(`${product.id}-purchase`);
         product.purchased = false;
+        this.updateCounter();
       }
     });
     
@@ -40,5 +42,9 @@ export class CartService {
 
   totalCartCost(){
     return this.products.reduce((accumulator, current_value) => accumulator + current_value.price, 0);
+  }
+
+  updateCounter(): void {
+    this.observable.next(this.getCartCount());
   }
 }
