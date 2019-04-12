@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
+import { Router } from '@angular/router';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  
   product: Product[] = [
     {
       "id": "HT-1000",
@@ -101,13 +103,24 @@ export class ProductsService {
     },
 
   ];
-  constructor() { }
+  single_product: Product;
+  related_product: Product[] = [];
+
+  constructor(private router:Router) { }
   
   getProducts(): Product[]{
     return this.product;
   }
+
   setProducts(products:Product[]){
     this.product = products;
+  }
+
+  getOneProduct(id:any){
+    for(let product of this.product){
+      if (product.id === id) return product;
+    }
+    return this.router.navigate(['404']);
   }
   
 }

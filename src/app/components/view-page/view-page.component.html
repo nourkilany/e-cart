@@ -32,15 +32,12 @@
   <div class="row">
     <ng-container *ngFor="let rproduct of products">
       <ng-container *ngIf="rproduct.category == product.category && rproduct.name != product.name">
-      
-        
         <div class="col-md-3 col-sm-6 mb-4">
           <small>{{rproduct.name}}</small>
           <a  class="related-product" (click)="onSwitch(rproduct)">
-            <img class="img-fluid" [src]="rproduct.image" alt="product-image">
+            <img [routerLink]="['/products/', rproduct.id]" class="img-fluid" [src]="rproduct.image" >
           </a>
         </div>
-      
       </ng-container>
     </ng-container>
   </div>
