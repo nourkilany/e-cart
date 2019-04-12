@@ -15,6 +15,7 @@ export class ViewPageComponent implements OnInit {
   public product;
   public product_id: any;
   public similar_products: Product[] = [];
+  public products: Product[] = [];
   
   
 
@@ -27,15 +28,15 @@ export class ViewPageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    let products = this.productsService.getProducts();
+    this.products = this.productsService.getProducts();
     this.product_id = this.route.params['value'].id;
-    products.forEach((product => {
+    this.products.forEach((product => {
       
       if (product.id === this.product_id) {
         this.product = product;
       }
     }))
-    products.forEach((product)=>{
+    this.products.forEach((product)=>{
       if (product.category === this.product.category && product.id !== this.product_id) {
         this.similar_products.push(product);
       }

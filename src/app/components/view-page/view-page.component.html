@@ -30,13 +30,18 @@
   <h3 class="my-4">Related Products</h3>
 
   <div class="row">
-    <ng-container *ngFor="let product of similar_products">
-      <div class="col-md-3 col-sm-6 mb-4">
-        <small>{{product.name}}</small>
-        <a  class="related-product" (click)="onSwitch(product)">
-          <img class="img-fluid" [src]="product.image" alt="product-image">
-        </a>
-      </div>
+    <ng-container *ngFor="let rproduct of products">
+      <ng-container *ngIf="rproduct.category == product.category && rproduct.name != product.name">
+      
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+          <small>{{rproduct.name}}</small>
+          <a  class="related-product" (click)="onSwitch(rproduct)">
+            <img class="img-fluid" [src]="rproduct.image" alt="product-image">
+          </a>
+        </div>
+      
+      </ng-container>
     </ng-container>
   </div>
 </div>
