@@ -17,6 +17,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RelatedProductsComponent } from './components/related-products/related-products.component';
+import { LoginComponent } from './components/login/login.component';
+import { UsernameComponent } from './components/username/username.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { RelatedProductsComponent } from './components/related-products/related-
     CheckoutComponent,
     RegisterComponent,
     NotFoundComponent,
-    RelatedProductsComponent
+    RelatedProductsComponent,
+    LoginComponent,
+    UsernameComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
