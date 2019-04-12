@@ -27,9 +27,12 @@ export class ViewPageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
     this.product_id = this.route.snapshot.paramMap.get('id');
     this.product = this.productsService.getOneProduct(this.product_id);
+  }
+
+  ngOnChanges(){
+
   }
   onWish() {
     this.wishlistService.addToWishlist(this.product);
@@ -40,5 +43,13 @@ export class ViewPageComponent implements OnInit {
   onSwitch(product){
     this.product = product;
   }
+
+  init(product){
+    console.table(product);
+    // console.log(product);
+    this.product_id = product.id;
+    this.product = this.productsService.getOneProduct(this.product_id);
+  }
+  
 
 }

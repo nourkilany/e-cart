@@ -16,8 +16,6 @@ export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @ViewChild(ViewPageComponent) modalHtml: ViewPageComponent;
 
-
-  
   constructor(
     private wishlistService:WishlistService,
     private cartService:CartService

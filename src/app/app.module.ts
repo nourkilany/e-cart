@@ -16,6 +16,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RelatedProductsComponent } from './components/related-products/related-products.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ViewPageComponent,
     CheckoutComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RelatedProductsComponent
   ],
   imports: [
     BrowserModule,

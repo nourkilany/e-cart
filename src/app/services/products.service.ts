@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductsService {
-  
+
   product: Product[] = [
     {
       "id": "HT-1000",
@@ -121,6 +121,16 @@ export class ProductsService {
       if (product.id === id) return product;
     }
     return this.router.navigate(['404']);
+  }
+
+  getRelatedProducts(related_product:Product){
+    this.related_product.splice(0, this.related_product.length);
+    this.product.forEach((product)=>{
+      if(product.category === related_product.category && product.id !== related_product.id){
+        this.related_product.push(product);
+      }
+    })
+    return this.related_product;
   }
   
 }
